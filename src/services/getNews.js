@@ -1,11 +1,13 @@
-require("dotenv").config();
 import axios from "axios";
+
+const NEWS_API_KEY = "5ea378629ec94e1d9894ea8b005cdbc5";
+const NEWS_API_BASE_URL = "http://newsapi.org/v2";
 
 export const getNews = async ({ searchQuery = "technology" }) => {
   try {
     const path = "/everything";
-    const query = `?q=${searchQuery}&apikey${process.env.REACT_APP_NEWS_API_KEY}`;
-    const endPointURL = `${process.env.REACT_APP_NEWS_API_BASE_URL}${path}${query}`;
+    const query = `?q=${searchQuery}&apikey=${NEWS_API_KEY}`;
+    const endPointURL = `${NEWS_API_BASE_URL}${path}${query}`;
 
     const res = await axios.get(endPointURL);
 
